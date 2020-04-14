@@ -1,15 +1,14 @@
-import { MONTH_NAMES } from "../consts.js";
-import { COLORS } from "../consts.js";
-import { DAYS } from "../consts.js";
-import { formatTime } from "../utils.js";
+import {MONTH_NAMES, COLORS, DAYS} from "../consts.js";
+import {formatTime} from "../utils.js";
 
 const createColorsMarkup = (colors, currentColor) => {
-  return colors.map((color, index) => {
+  return colors
+  .map((color, index) => {
     return (
       `<input
       type="radio"
       id="color-${color}-${index}"
-      class="card__color-input card__color-input--black visually-hidden"
+      class="card__color-input card__color-input--${color} visually-hidden"
       name="color"
       value=${color}
       ${currentColor === color ? `checked` : ``}
@@ -20,11 +19,13 @@ const createColorsMarkup = (colors, currentColor) => {
       >${color}</label
     >`
     );
-  }).join(`\n`);
+  })
+  .join(`\n`);
 };
 
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
-  return days.map((day, index) => {
+  return days
+  .map((day, index) => {
     const isChecked = repeatingDays[day];
     return (
       `<input
@@ -39,22 +40,22 @@ const createRepeatingDaysMarkup = (days, repeatingDays) => {
       >${day}</label
     >`
     );
-  }).join(`\n`);
-};
-
-const repeatingDaysMarkup = (days) => {
-  return days.map((it) => createRepeatingDaysMarkup(it)).join(``);
+  })
+  .join(`\n`);
 };
 
 export const createTaskEditTemplate = (task) => {
-  const { description, dueDate, color, repeatingDays} = task;
+  const {description, dueDate, color, repeatingDays} = task;
+
   const isExpired = dueDate instanceof Date && dueDate < Date.now();
   const isDateShowing = !!dueDate;
-  const isRepeatingTask = Object.values(repeatingDays).some((it) => !!it)
+
   const date = isDateShowing ? `${dueDate.getDate()}${MONTH_NAMES[dueDate.getMonth()]}` : ``;
   const time = isDateShowing ? formatTime(dueDate) : ``;
-  const repeatClass = `card--repeat`;
-  const deadlineClass = isExpired ? `card-deadline` : ``;
+
+  const isRepeatingTask = Object.values(repeatingDays).some(Boolean);
+  const repeatClass = isRepeatingTask ? `card--repeat` : ``;
+  const deadlineClass = isExpired ? `card--deadline` : ``;
 
   const colorsMarkup = createColorsMarkup(COLORS, color);
   const repeatingDaysMarkup = createRepeatingDaysMarkup(DAYS, repeatingDays);
@@ -73,9 +74,9 @@ export const createTaskEditTemplate = (task) => {
             <label>
               <textarea
                 class="card__text"
-                placeholder=${description}
+                placeholder="Start typing your text here..."
                 name="text"
-              >Here is a card with filled data</textarea>
+              >${description}</textarea>
             </label>
           </div>
 
@@ -97,17 +98,19 @@ export const createTaskEditTemplate = (task) => {
                     />
                   </label>
                 </fieldset>` : ``
-                }
+    }
 
                 <button class="card__repeat-toggle" type="button">
-                  repeat:<span class="card__repeat-status">yes</span>
+                  repeat:<span class="card__repeat-status">${isRepeatingTask ? `yes` : `no`}</span>
                 </button>
 
-                <fieldset class="card__repeat-days">
+                ${isRepeatingTask ?
+      `<fieldset class="card__repeat-days">
                   <div class="card__repeat-days-inner">
                     ${repeatingDaysMarkup}
                   </div>
-                </fieldset>
+                </fieldset>` : ``
+    }
               </div>
             </div>
 
