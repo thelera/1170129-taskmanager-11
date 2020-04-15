@@ -9,11 +9,11 @@ const createLoadMoreButtonTemplate = () => {
 export default class MoreButton {
   constructor() {
     this._element = null;
-  };
+  }
 
   getTemplate() {
     return createLoadMoreButtonTemplate();
-  };
+  }
 
   getElement() {
     if (!this._element) {
@@ -21,9 +21,9 @@ export default class MoreButton {
     }
 
     return this._element;
-  };
+  }
 
   removeElement() {
     this._element = null;
-  };
-};
+  }
+}

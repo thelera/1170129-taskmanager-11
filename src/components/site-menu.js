@@ -36,11 +36,11 @@ const createSiteMenuTemplate = () => {
 export default class SiteMenu {
   constructor() {
     this._element = null;
-  };
+  }
 
   getTemplate() {
     return createSiteMenuTemplate();
-  };
+  }
 
   getElement() {
     if (!this._element) {
@@ -48,9 +48,9 @@ export default class SiteMenu {
     }
 
     return this._element;
-  };
+  }
 
   removeElement() {
     this._element = null;
-  };
-};
+  }
+}

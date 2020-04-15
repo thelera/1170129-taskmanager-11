@@ -11,11 +11,11 @@ const createSortingTemplate = () => {
 export default class Sorting {
   constructor() {
     this._element = null;
-  };
+  }
 
   getTemplate() {
     return createSortingTemplate();
-  };
+  }
 
   getElement() {
     if (!this._element) {
@@ -23,9 +23,9 @@ export default class Sorting {
     }
 
     return this._element;
-  };
+  }
 
   removeElement() {
     this._element = null;
-  };
-};
+  }
+}

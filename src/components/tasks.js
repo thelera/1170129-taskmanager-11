@@ -9,11 +9,11 @@ const createTasksTemplate = () => {
 export default class Tasks {
   constructor() {
     this._element = null;
-  };
+  }
 
   getTemplate() {
     return createTasksTemplate();
-  };
+  }
 
   getElement() {
     if (!this._element) {
@@ -21,9 +21,9 @@ export default class Tasks {
     }
 
     return this._element;
-  };
+  }
 
   removeElement() {
     this._element = null;
-  };
-};
+  }
+}

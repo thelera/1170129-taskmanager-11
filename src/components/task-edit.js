@@ -136,11 +136,11 @@ export default class TaskEdit {
   constructor(task) {
     this._task = task;
     this._element = null;
-  };
+  }
 
   getTemplate() {
     return createTaskEditTemplate(this._task);
-  };
+  }
 
   getElement() {
     if (!this._element) {
@@ -148,9 +148,9 @@ export default class TaskEdit {
     }
 
     return this._element;
-  };
+  }
 
   removeElement() {
     this._element = null;
-  };
-};
+  }
+}
