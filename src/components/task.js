@@ -1,5 +1,6 @@
 import {MONTH_NAMES} from "../consts.js";
 import {createElement, formatTime} from "../utils.js";
+import Abstract from "./abstract-component.js";
 
 const createTaskTemplate = (task) => {
   const {description, dueDate, color, repeatingDays, isArchive, isfavourite} = task;
@@ -62,25 +63,13 @@ const createTaskTemplate = (task) => {
   );
 };
 
-export default class Task {
+export default class Task extends Abstract{
   constructor(task) {
+    super();
     this._task = task;
-    this._element = null;
   }
 
   getTemplate() {
     return createTaskTemplate(this._task);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

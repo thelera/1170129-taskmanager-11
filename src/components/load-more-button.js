@@ -1,4 +1,5 @@
 import {createElement} from "../utils.js";
+import Abstract from "./abstract-component.js";
 
 const createLoadMoreButtonTemplate = () => {
   return (
@@ -6,24 +7,8 @@ const createLoadMoreButtonTemplate = () => {
   );
 };
 
-export default class MoreButton {
-  constructor() {
-    this._element = null;
-  }
-
+export default class MoreButton extends Abstract{
   getTemplate() {
     return createLoadMoreButtonTemplate();
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
