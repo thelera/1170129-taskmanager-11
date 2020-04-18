@@ -1,4 +1,3 @@
-import {createElement} from "../utils/common.js";
 import Abstract from "./abstract-component.js";
 
 const createSiteMenuTemplate = () => {
@@ -34,7 +33,7 @@ const createSiteMenuTemplate = () => {
   );
 };
 
-export default class SiteMenu extends Abstract{
+export default class SiteMenu extends Abstract {
   getTemplate() {
     return createSiteMenuTemplate();
   }

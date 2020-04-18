@@ -1,4 +1,3 @@
-import {createElement} from "../utils/common.js";
 import Abstract from "./abstract-component.js";
 
 const createFilterMarkup = (filter, isChecked) => {
@@ -26,7 +25,7 @@ const createFilterTemplate = (filters) => {
   </section>`;
 };
 
-export default class Filter extends Abstract{
+export default class Filter extends Abstract {
   constructor(filters) {
     super();
     this._filters = filters;

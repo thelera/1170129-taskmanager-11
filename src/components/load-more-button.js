@@ -6,7 +6,7 @@ const createLoadMoreButtonTemplate = () => {
   );
 };
 
-export default class MoreButton extends Abstract{
+export default class MoreButton extends Abstract {
   getTemplate() {
     return createLoadMoreButtonTemplate();
   }

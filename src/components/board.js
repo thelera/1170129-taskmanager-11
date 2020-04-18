@@ -1,4 +1,3 @@
-import {createElement} from "../utils/common.js";
 import Abstract from "./abstract-component.js";
 
 const createBoardTemplate = () => {
@@ -8,7 +7,7 @@ const createBoardTemplate = () => {
   );
 };
 
-export default class Board extends Abstract{
+export default class Board extends Abstract {
   getTemplate() {
     return createBoardTemplate();
   }

@@ -1,4 +1,3 @@
-import {createElement} from "../utils/common.js";
 import Abstract from "./abstract-component.js";
 
 const createTasksTemplate = () => {
