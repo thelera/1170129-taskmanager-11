@@ -1,27 +1,23 @@
 import {MONTH_NAMES, COLORS, DAYS} from "../consts.js";
-import {createElement, formatTime} from "../utils.js";
+import {formatTime} from "../utils/common.js";
+import AbstractComponent from "./abstract-component.js";
 
-const createColorsMarkup = (colors, currentColor) => {
-  return colors
-  .map((color, index) => {
-    return (
-      `<input
-      type="radio"
-      id="color-${color}-${index}"
-      class="card__color-input card__color-input--${color} visually-hidden"
-      name="color"
-      value=${color}
-      ${currentColor === color ? `checked` : ``}
+const createColorsMarkup = (colors, currentColor) =>
+  colors.map((color, index) =>
+    `<input
+    type="radio"
+    id="color-${color}-${index}"
+    class="card__color-input card__color-input--${color} visually-hidden"
+    name="color"
+    value=${color}
+    ${currentColor === color ? `checked` : ``}
     />
     <label
       for="color-${color}-${index}"
       class="card__color card__color--${color}"
       >${color}</label
     >`
-    );
-  })
-  .join(`\n`);
-};
+  ).join(`\n`);
 
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days
@@ -132,25 +128,18 @@ const createTaskEditTemplate = (task) => {
   );
 };
 
-export default class TaskEdit {
+export default class TaskEdit extends AbstractComponent {
   constructor(task) {
+    super();
     this._task = task;
-    this._element = null;
   }
 
   getTemplate() {
     return createTaskEditTemplate(this._task);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
+  setSubmitHandler(handler) {
+    this.getElement().querySelector(`form`)
+      .addEventListener(`submit`, handler);
   }
 }
