@@ -1,12 +1,9 @@
-import Abstract from "./abstract-component.js";
+import AbstractComponent from "./abstract-component.js";
 
-const createTasksTemplate = () => {
-  return (
-    `<div class="board__tasks"></div>`
-  );
-};
+const createTasksTemplate = () =>
+  `<div class="board__tasks"></div>`;
 
-export default class Tasks extends Abstract {
+export default class Tasks extends AbstractComponent {
   getTemplate() {
     return createTasksTemplate();
   }

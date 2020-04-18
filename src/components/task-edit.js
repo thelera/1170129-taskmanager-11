@@ -1,28 +1,23 @@
 import {MONTH_NAMES, COLORS, DAYS} from "../consts.js";
 import {formatTime} from "../utils/common.js";
-import Abstract from "./abstract-component.js";
+import AbstractComponent from "./abstract-component.js";
 
-const createColorsMarkup = (colors, currentColor) => {
-  return colors
-  .map((color, index) => {
-    return (
-      `<input
-      type="radio"
-      id="color-${color}-${index}"
-      class="card__color-input card__color-input--${color} visually-hidden"
-      name="color"
-      value=${color}
-      ${currentColor === color ? `checked` : ``}
+const createColorsMarkup = (colors, currentColor) =>
+  colors.map((color, index) =>
+    `<input
+    type="radio"
+    id="color-${color}-${index}"
+    class="card__color-input card__color-input--${color} visually-hidden"
+    name="color"
+    value=${color}
+    ${currentColor === color ? `checked` : ``}
     />
     <label
       for="color-${color}-${index}"
       class="card__color card__color--${color}"
       >${color}</label
     >`
-    );
-  })
-  .join(`\n`);
-};
+  ).join(`\n`);
 
 const createRepeatingDaysMarkup = (days, repeatingDays) => {
   return days
@@ -133,7 +128,7 @@ const createTaskEditTemplate = (task) => {
   );
 };
 
-export default class TaskEdit extends Abstract {
+export default class TaskEdit extends AbstractComponent {
   constructor(task) {
     super();
     this._task = task;

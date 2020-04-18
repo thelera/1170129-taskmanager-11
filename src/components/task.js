@@ -1,6 +1,6 @@
 import {MONTH_NAMES} from "../consts.js";
 import {formatTime} from "../utils/common.js";
-import Abstract from "./abstract-component.js";
+import AbstractComponent from "./abstract-component.js";
 
 const createTaskTemplate = (task) => {
   const {description, dueDate, color, repeatingDays, isArchive, isfavourite} = task;
@@ -63,7 +63,7 @@ const createTaskTemplate = (task) => {
   );
 };
 
-export default class Task extends Abstract {
+export default class Task extends AbstractComponent {
   constructor(task) {
     super();
     this._task = task;

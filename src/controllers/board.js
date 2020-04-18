@@ -37,9 +37,7 @@ const renderTask = (taskListElement, task) => {
 };
 
 const renderTasks = (taskListElement, tasks) => {
-  tasks.forEach((task) => {
-    renderTask(taskListElement, task);
-  });
+  tasks.forEach((task) => renderTask(taskListElement, task));
 };
 
 const getSortedTasks = (tasks, sortType, from, to) => {
@@ -51,14 +49,10 @@ const getSortedTasks = (tasks, sortType, from, to) => {
       sortedTasks = showingTasks;
       break;
     case SortType.DATE_UP:
-      sortedTasks = showingTasks.sort((a, b) => {
-        return a.dueDate - b.dueDate;
-      });
+      sortedTasks = showingTasks.sort((a, b) => a.dueDate - b.dueDate);
       break;
     case SortType.DATE_DOWN:
-      sortedTasks = showingTasks.sort((a, b) => {
-        return b.dueDate - a.dueDate;
-      });
+      sortedTasks = showingTasks.sort((a, b) => b.dueDate - a.dueDate);
       break;
   }
 
