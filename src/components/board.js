@@ -1,4 +1,4 @@
-import {createElement} from "../utils.js";
+import {createElement} from "../utils/common.js";
 import Abstract from "./abstract-component.js";
 
 const createBoardTemplate = () => {

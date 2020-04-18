@@ -1,4 +1,3 @@
-import {createElement} from "../utils.js";
 import Abstract from "./abstract-component.js";
 
 const createLoadMoreButtonTemplate = () => {
@@ -10,5 +9,9 @@ const createLoadMoreButtonTemplate = () => {
 export default class MoreButton extends Abstract{
   getTemplate() {
     return createLoadMoreButtonTemplate();
+  }
+
+  setClickHandler(handler) {
+    this.getElement().addEventListener(`click`, handler);
   }
 }
