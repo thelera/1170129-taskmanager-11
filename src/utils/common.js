@@ -7,4 +7,10 @@ export const formatTime = (date) => {
   const minutes = castTimeFormat(date.getMinutes());
 
   return `${hours}:${minutes}`;
+  //return moment(date).format(`hh:mm`);
+};
+
+export const formatDate = (date) => {
+  //return moment(date).format(`DD MMMM`);
+  return `DD MMMM`;
 };
