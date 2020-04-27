@@ -1,6 +1,6 @@
 import {MONTH_NAMES} from "../consts.js";
 import {formatTime} from "../utils/common.js";
-import AbstractComponent from "./abstract-component.js"; 
+import AbstractComponent from "./abstract-component.js";
 
 const createButtonMarkup = (name, isActive = true) => {
   return (

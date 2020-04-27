@@ -84,5 +84,5 @@ export default class TaskController {
       replace(this._taskComponent, this._taskEditComponent);
       document.removeEventListener(`keydown`, this._onEscKeyDown);
     }
-  };
+  }
 }

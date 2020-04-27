@@ -1,4 +1,4 @@
-import {MONTH_NAMES, COLORS, DAYS} from "../consts.js";
+import {COLORS, DAYS} from "../consts.js";
 import {formatTime, formatDate} from "../utils/common.js";
 import AbstractSmartComponent from "./abstract-smart-component.js";
 
